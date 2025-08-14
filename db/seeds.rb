@@ -7,9 +7,9 @@ Tag.destroy_all
 
 Tag.create!([
   {
-    name: "Bear Peak",
-    lat: 39.961287931115216,
-    lng: -105.29525181844889
+    name: "Walker Ranch Trailhead",
+    lat: 39.95120242079443,
+    lng: -105.33758684999596
   },
   {
     name: "Green Mountain",
@@ -18,3 +18,16 @@ Tag.create!([
   }
 ])
 p "Created #{Tag.count} Tags"
+
+morning_run = Track.create(name: "Walker Ranch Trail Run", tag_id: Tag.first.id)
+morning_run.data.attach(io: File.open(Rails.root.join("db", "tracks", "morning_run.geojson")), filename: "morning_run.geojson")
+morning_run.save!
+
+morning_hike_1 = Track.create(name: "Green Mountain West Ridge", tag_id: Tag.second.id)
+morning_hike_1.data.attach(io: File.open(Rails.root.join("db", "tracks", "morning_hike_1.geojson")), filename: "morning_hike_1.geojson")
+morning_hike_1.save!
+
+morning_hike_2 = Track.create(name: "Green Mountain Ranger Trail", tag_id: Tag.second.id)
+morning_hike_2.data.attach(io: File.open(Rails.root.join("db", "tracks", "morning_hike_2.geojson")), filename: "morning_hike_2.geojson")
+morning_hike_2.save!
+p "Created #{Track.count} Tracks"

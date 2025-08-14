@@ -23,6 +23,28 @@
   </head>
 
   <body>
+    <header class="px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between border-b border-zinc-100 py-3 text-sm">
+        <div class="flex items-center gap-4">
+          <a href="<%= root_path%>"><%= image_tag("logo.svg", size: "32") %></a>
+          <p class="bg-brand/5 text-brand rounded-full px-2 font-medium leading-6">
+            PopTopo
+          </p>
+        </div>
+        <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
+          <a href="/map" class="hover:text-zinc-700">
+            Map
+          </a>
+          <a href="/tags" class="hover:text-zinc-700">
+            Tags
+          </a>
+          <a href="https://github.com/icstrouse/poptopo" target="_blank" class="hover:text-zinc-700">
+            GitHub
+          </a>
+        </div>
+      </div>
+    </header>
+
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
