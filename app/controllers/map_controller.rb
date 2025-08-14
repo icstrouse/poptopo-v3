@@ -15,7 +15,6 @@ class MapController < ApplicationController
       track_data = track.data.download
       { id: track.id, name: track.name, data: track_data }
     }.to_json
-    puts "tracks count: #{@tracks.length}"
   end
 
   def track
